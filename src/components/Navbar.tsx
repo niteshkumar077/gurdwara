@@ -88,10 +88,10 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed inset-x-0 z-50 transition-[top,padding,background-color] duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${navContainerStyles}`}
+        className={`fixed inset-x-0 z-50 transition-[transform,background-color] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${navContainerStyles}`}
         aria-label="Primary Navigation"
       >
-        <div className={`transition-[background-color,border-color,box-shadow,backdrop-filter,padding,max-width,border-radius] duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${navInnerStyles}`}>
+        <div className={`transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${navInnerStyles}`} style={{ willChange: "transform, opacity" }}>
           <div className="px-4 md:px-6 lg:px-10 flex justify-between items-center gap-4 lg:gap-8">
 
             {/* Logo Section - Majestic Positioning */}
