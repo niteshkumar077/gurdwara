@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Royal Sikhism Theme Variables */
+:root {
+  --background: #FAFAFA; /* Soft airy off-white for Light Mode */
+  --foreground: #0A192F; /* Deep Navy for text readability */
+  --primary: #D4AF37; /* Radiant Gold */
+  --secondary: #FF9933; /* Saffron */
+  --accent: #E8F1F8; /* Light icy blue for contrast */
+}
+
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+.dark {
+  --background: #001224; /* Very Dark Navy for true dark mode */
+  --foreground: #F5F5DC; /* Off-white/Beige for soft reading */
+  --primary: #FFCC00; /* Bright Gold */
+  --secondary: #FF9933; /* Saffron */
+  --accent: #002855; /* Slightly lighter navy for cards */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Framer Motion scroll container fix — html must be non-static for whileInView to calculate offsets correctly */
+html {
+  position: relative;
+}
+
+/* Custom Scrollbar for rich feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass-card {
+    @apply bg-white/90 dark:bg-[#001F3F]/80 backdrop-blur-lg border border-primary/20 shadow-md dark:shadow-xl;
+  }
+  .glass-gold {
+    @apply bg-primary/10 dark:bg-primary/20 backdrop-blur-md border border-primary/30;
+  }
+  .gold-gradient-text {
+    @apply bg-gradient-to-r from-[#D4AF37] to-[#FF9933] text-transparent bg-clip-text;
+  }
+}
+
+/* Force white text inside the video showcase dark section - overrides body foreground inheritance */
+.text-forced-white {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
