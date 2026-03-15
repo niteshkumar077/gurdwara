@@ -111,17 +111,17 @@ export default function Navbar() {
                   alt="Gurdwara Sahib Switzerland Logo"
                   width={64}
                   height={64}
-                  className={`w-full h-full object-contain transition-[filter] duration-700 ${showWhiteText ? "drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]" : "drop-shadow-lg"}`}
+                  className="w-full h-full object-contain"
                   style={{ width: "100%", height: "100%", display: "block", objectFit: "contain" }}
                   priority
                   fetchPriority="high"
                 />
               </div>
               <div className="flex flex-col font-playfair tracking-tight">
-                <span className={`text-base md:text-[15px] lg:text-2xl font-black leading-none transition-colors duration-700 ${!showWhiteText ? "text-foreground" : "text-white drop-shadow-md"}`}>
+                <span className={`text-base md:text-[15px] lg:text-2xl font-black leading-none transition-colors duration-300 ${!showWhiteText ? "text-foreground" : "text-white"}`}>
                   {t("home.title").split(" ").slice(0, 2).join(" ")}
                 </span>
-                <span className={`text-[8px] md:text-[7px] lg:text-xs font-bold tracking-[0.2em] lg:tracking-[0.4em] mt-1 opacity-90 transition-colors duration-700 ${!showWhiteText ? "text-primary" : "text-white/90"}`}>
+                <span className={`text-[8px] md:text-[7px] lg:text-xs font-bold tracking-[0.2em] lg:tracking-[0.4em] mt-1 opacity-90 transition-colors duration-300 ${!showWhiteText ? "text-primary" : "text-white/90"}`}>
                   {t("home.title").split(" ").slice(2).join(" ").toUpperCase()}
                 </span>
               </div>
@@ -136,7 +136,7 @@ export default function Navbar() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`relative font-inter text-[10px] lg:text-[13px] font-bold uppercase tracking-wider lg:tracking-[0.1em] transition-all duration-700 hover:text-primary ${isActive
+                      className={`relative font-inter text-[10px] lg:text-[13px] font-bold uppercase tracking-wider lg:tracking-[0.1em] transition-colors duration-300 hover:text-primary ${isActive
                           ? (!showWhiteText ? "text-primary" : "text-white")
                           : (!showWhiteText ? "text-foreground/80" : "text-white/80 hover:text-white")
                         }`}
@@ -164,7 +164,7 @@ export default function Navbar() {
               <div className="flex items-center gap-1 lg:gap-4 pl-3 lg:pl-6 xl:pl-10 border-l border-foreground/10">
                 <button
                   onClick={toggleLanguage}
-                  className={`group flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-black transition-all border border-transparent hover:border-primary/20 ${!showWhiteText ? "text-foreground hover:bg-primary/10" : "text-white hover:bg-white/10"
+                  className={`group flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-black transition-colors duration-300 border border-transparent hover:border-primary/20 ${!showWhiteText ? "text-foreground hover:bg-primary/10" : "text-white hover:bg-white/10"
                     }`}
                   aria-label={`Switch language from ${lang}`}
                   title={`Switch language from ${lang}`}
@@ -175,7 +175,7 @@ export default function Navbar() {
 
                 <button
                   onClick={toggleTheme}
-                  className={`p-2.5 flex items-center justify-center rounded-full transition-all border border-transparent ${!showWhiteText
+                  className={`p-2.5 flex items-center justify-center rounded-full transition-colors duration-300 border border-transparent ${!showWhiteText
                       ? "text-foreground hover:bg-foreground/5 bg-foreground/5 md:bg-transparent hover:border-foreground/10"
                       : "text-white hover:bg-white/10 bg-white/5 md:bg-transparent hover:border-white/20"
                     }`}
