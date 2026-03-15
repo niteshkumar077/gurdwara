@@ -77,21 +77,27 @@ export default function Navbar() {
   const showBackground = !isHomePage || isScrolled;
 
   // Premium High-End Navigation Styles
-  const navContainerStyles = isScrolled
-    ? "top-4 px-4 sm:px-6"
-    : isHomePage ? "top-0 px-0" : "top-2 px-4";
+  const navInnerStyles = isScrolled 
+    ? 'rounded-[2rem] py-2 max-w-5xl' 
+    : 'rounded-[1.5rem] py-4 max-w-7xl';
 
-  const navInnerStyles = showBackground
-    ? `bg-background/90 backdrop-blur-3xl border border-primary/20 shadow-[0_20px_50px_rgba(0,0,0,0.15),0_0_20px_rgba(212,175,55,0.05)] ${isScrolled ? 'rounded-[2rem] py-2 max-w-5xl mx-auto' : 'rounded-[1.5rem] py-4 max-w-7xl mx-auto'}`
-    : "bg-transparent py-6 max-w-7xl mx-auto border-transparent shadow-none";
+  const showGlass = showBackground;
 
   return (
     <>
       <nav
-        className={`fixed inset-x-0 z-50 transition-[top,padding,background-color,transform] duration-600 ease-[cubic-bezier(0.23,1,0.32,1)] ${navContainerStyles}`}
+        className={`fixed inset-x-0 z-50 transition-[top,transform] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isScrolled ? 'top-4 px-4 sm:px-6' : isHomePage ? 'top-0 px-0' : 'top-2 px-4'}`}
         aria-label="Primary Navigation"
       >
-        <div className={`transition-[background-color,border-color,box-shadow,backdrop-filter,padding,max-width,border-radius] duration-600 ease-[cubic-bezier(0.23,1,0.32,1)] ${navInnerStyles}`} style={{ willChange: "transform, opacity, top, padding" }}>
+        <div 
+          className={`relative mx-auto transition-[padding,max-width,border-radius] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${navInnerStyles}`}
+          style={{ willChange: "transform, padding" }}
+        >
+          {/* GPU-Accelerated Glass Background Layer */}
+          <div 
+            className={`absolute inset-0 -z-10 transition-[opacity,border-radius] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] bg-background/90 backdrop-blur-3xl border border-primary/20 shadow-[0_20px_50px_rgba(0,0,0,0.15),0_0_20px_rgba(212,175,55,0.05)] pointer-events-none ${isScrolled ? 'rounded-[2rem]' : 'rounded-[1.5rem]'}`}
+            style={{ opacity: showGlass ? 1 : 0, willChange: "opacity" }}
+          />
           <div className="px-4 md:px-6 lg:px-10 flex justify-between items-center gap-4 lg:gap-8">
 
             {/* Logo Section - Majestic Positioning */}
