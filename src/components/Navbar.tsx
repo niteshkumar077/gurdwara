@@ -97,18 +97,18 @@ export default function Navbar() {
             {/* Logo Section - Majestic Positioning */}
             <a href="/" className="flex items-center gap-2 md:gap-3 lg:gap-4 group">
               <div 
-                className="relative !w-12 !h-12 md:!w-10 md:!h-10 lg:!w-16 lg:!h-16 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
-                style={{ width: "48px", height: "48px" }}
+                className="relative flex-shrink-0 w-12 h-12 md:w-10 md:h-10 lg:w-16 lg:h-16 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                style={{ flexShrink: 0 }}
               >
                 <Image
                   src="/assets/gurdwara sahib switzerland logo.webp"
                   alt="Gurdwara Sahib Switzerland Logo"
-                  fill
-                  sizes="(max-width: 768px) 56px, 64px"
-                  className={`object-contain transition-[filter] duration-700 ${showWhiteText ? "drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]" : "drop-shadow-lg"}`}
+                  width={64}
+                  height={64}
+                  className={`w-full h-full object-contain transition-[filter] duration-700 ${showWhiteText ? "drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]" : "drop-shadow-lg"}`}
+                  style={{ width: "100%", height: "100%", display: "block", objectFit: "contain" }}
                   priority
                   fetchPriority="high"
-                  style={{ willChange: "filter, transform" }}
                 />
               </div>
               <div className="flex flex-col font-playfair tracking-tight">
@@ -229,15 +229,16 @@ export default function Navbar() {
               <div className="p-6 flex items-center justify-between border-b border-primary/5">
                 <div className="flex items-center gap-3">
                   <div 
-                    className="relative !w-10 !h-10"
-                    style={{ width: "40px", height: "40px" }}
+                    className="relative flex-shrink-0 w-10 h-10"
+                    style={{ flexShrink: 0, width: "40px", height: "40px" }}
                   >
                     <Image
                       src="/assets/gurdwara sahib switzerland logo.webp"
                       alt="Gurdwara Logo"
-                      fill
-                      sizes="40px"
-                      className="object-contain"
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-contain"
+                      style={{ width: "100%", height: "100%", display: "block", objectFit: "contain" }}
                     />
                   </div>
                   <div className="flex flex-col">

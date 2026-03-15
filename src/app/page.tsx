@@ -41,8 +41,12 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Majestic Hero Section */}
-      <section ref={heroRef} className="relative h-screen min-h-[600px] landscape:min-h-[500px] flex items-center justify-center overflow-hidden bg-[#1a2a3a]">
-        <div className="absolute inset-0 z-0" style={{ position: "absolute", inset: 0 }}>
+      <section 
+        ref={heroRef} 
+        className="relative h-screen min-h-[600px] landscape:min-h-[500px] flex items-center justify-center overflow-hidden bg-[#1a2a3a]"
+        style={{ height: "100vh", minHeight: "600px", display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
+        <div className="absolute inset-0 z-0" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", overflow: "hidden" }}>
           <Image
             src="/assets/hero-front.webp"
             alt="Majestic exterior view of Gurdwara Sahib Switzerland at sunrise"
@@ -50,7 +54,7 @@ export default function Home() {
             sizes="100vw"
             quality={85}
             className="!object-cover !object-top"
-            style={{ objectFit: "cover", objectPosition: "top", width: "100%", height: "100%" }}
+            style={{ objectFit: "cover", objectPosition: "top", width: "100%", height: "100%", position: "absolute", inset: 0 }}
             priority
             fetchPriority="high"
             unoptimized
